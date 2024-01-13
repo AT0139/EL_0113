@@ -1,14 +1,16 @@
 using UnityEngine;
+using UniRx;
 
 public class TestHP : MonoBehaviour
 {
-    public int _currentHP;
+    public readonly int _maxHP = 100;
 
-    int _maxHP = 100;
+    public IReadOnlyReactiveProperty<int> Health => _currentHP;
+    IntReactiveProperty _currentHP = new();
 
     private void Start()
     {
-        _currentHP = _maxHP;
+        _currentHP.Value = _maxHP;
     }
     private void Update()
     {
@@ -21,6 +23,6 @@ public class TestHP : MonoBehaviour
 
     void Damage(int value)
     {
-        _currentHP -= value;
+        _currentHP.Value -= value;
     }
 }

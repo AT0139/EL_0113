@@ -6,7 +6,7 @@ public class TestHP : MonoBehaviour
     public readonly int _maxHP = 100;
 
     public IReadOnlyReactiveProperty<int> Health => _currentHP;
-    IntReactiveProperty _currentHP = new();
+    IntReactiveProperty _currentHP = new(100);
 
     private void Start()
     {

@@ -10,9 +10,10 @@ using UnityEngine.UI;
 public class ResultManager : MonoBehaviour
 {
     [SerializeField] private Text _text;
-    [SerializeField] private Text _resultText;
+    [SerializeField] private Image _resultTextImg;
     [SerializeField] private Image _resultImg;
     [SerializeField] private Sprite[] _resultchar = new Sprite[2];
+    [SerializeField] private Sprite[] _resulttext = new Sprite[2];
 
     void Start()
     {
@@ -22,12 +23,12 @@ public class ResultManager : MonoBehaviour
 
         if (_dontDestroyData.isCatWon)
         {
-            _resultText.text = "Cat WIN";
+            _resultTextImg.sprite = _resulttext[0];
             _resultImg.sprite = _resultchar[0];
         }
         else
         {
-            _resultText.text = "SHRIMP WIN";
+            _resultTextImg.sprite = _resulttext[1];
             _resultImg.sprite = _resultchar[1];
         }
 
@@ -41,6 +42,7 @@ public class ResultManager : MonoBehaviour
             .Where(_ => Input.anyKeyDown)
             .Subscribe(_ =>
             {
+                SoundManager.Instance.PlaySE(SoundManager.SE.ENTER);
                 SceneManager.LoadScene("Title");
             });
 

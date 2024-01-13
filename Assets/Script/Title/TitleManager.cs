@@ -30,6 +30,7 @@ public class TitleManager : MonoBehaviour
         .ThrottleFirst(TimeSpan.FromMilliseconds(100))
         .Subscribe(_ =>
         {
+            SoundManager.Instance.PlaySE(SoundManager.SE.ENTER);
             if (_isSelectToGame) SceneManager.LoadScene("Game");
             else
             {
@@ -50,6 +51,7 @@ public class TitleManager : MonoBehaviour
         {
             if (_isSelectToGame) return;
 
+            SoundManager.Instance.PlaySE(SoundManager.SE.SELECT);
             _isSelectToGame = true;
             ButtonSizeChange(_selectedSize, _noneSize);
 
@@ -63,6 +65,7 @@ public class TitleManager : MonoBehaviour
         {
             if (!_isSelectToGame) return;
 
+            SoundManager.Instance.PlaySE(SoundManager.SE.SELECT);
             _isSelectToGame = false;
             ButtonSizeChange(_noneSize,_selectedSize);
 

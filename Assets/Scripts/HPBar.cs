@@ -2,15 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HPBar : MonoBehaviour
 {
-    Slider _slider;
+    [System.NonSerialized] public Slider _slider;
 
-    void Start()
+    void Awake()
     {
         _slider = GetComponent<Slider>();
     }
 
-    void Update()
+    public void SetValue(float value)
     {
-
+        _slider.value = value;
     }
 }

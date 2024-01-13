@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] string _result = "Result";
 
-    [SerializeField] TestHP _cat;
-    [SerializeField] TestHP _shrimp;
-    [SerializeField] DontDestroyData _dontDestroyData;
+    [SerializeField] HP _cat;
+    [SerializeField] HP _shrimp;
+    DontDestroyData _dontDestroyData;
 
     private void Start()
     {
+        _dontDestroyData = GameObject.Find("DontDestroyData").GetComponent<DontDestroyData>();
+
         _cat.Health.
             Subscribe(x =>
             {

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
-    [SerializeField] private Text _text;
+    [SerializeField] private Image _anykeyImg;
     [SerializeField] private Image _resultTextImg;
     [SerializeField] private Image _resultImg;
     [SerializeField] private Sprite[] _resultchar = new Sprite[2];
@@ -32,11 +32,11 @@ public class ResultManager : MonoBehaviour
             _resultImg.sprite = _resultchar[1];
         }
 
-        _text.gameObject.SetActive(false);
+        _anykeyImg.gameObject.SetActive(false);
 
         Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
         {
-            _text.gameObject.SetActive(true);
+            _anykeyImg.gameObject.SetActive(true);
 
             this.UpdateAsObservable()
             .Where(_ => Input.anyKeyDown)

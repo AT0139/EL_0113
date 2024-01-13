@@ -155,7 +155,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2402229280874895251}
   m_HandleRect: {fileID: 0}
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5fb04a5aa43e9429b75092ecd45b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
 --- !u!1 &2402229281374932096
 GameObject:
   m_ObjectHideFlags: 0

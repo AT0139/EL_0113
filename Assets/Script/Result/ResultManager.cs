@@ -16,7 +16,9 @@ public class ResultManager : MonoBehaviour
 
     void Start()
     {
-       var _dontDestroyData = GameObject.Find("DontDestroyData").GetComponent<DontDestroyData>();
+        SoundManager.Instance.PlayBGM(SoundManager.BGM.RESULT,false);
+
+        var _dontDestroyData = GameObject.Find("DontDestroyData").GetComponent<DontDestroyData>();
 
         if (_dontDestroyData.isCatWon)
         {
@@ -31,7 +33,7 @@ public class ResultManager : MonoBehaviour
 
         _text.gameObject.SetActive(false);
 
-        Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
+        Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(_ =>
         {
             _text.gameObject.SetActive(true);
 

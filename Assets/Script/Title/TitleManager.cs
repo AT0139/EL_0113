@@ -17,6 +17,8 @@ public class TitleManager : MonoBehaviour
     private Vector2 _noneSize = new Vector2();
     void Start()
     {
+        SoundManager.Instance.PlayBGM(SoundManager.BGM.TITLE);
+
         // ボタンサイズ取得
         _selectedSize = _toGameRect.sizeDelta;
         _noneSize = _exitRect.sizeDelta;

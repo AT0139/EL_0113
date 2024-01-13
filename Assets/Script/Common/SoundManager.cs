@@ -40,9 +40,10 @@ public class SoundManager : MonoBehaviour
         ENTER,
     }
 
-    public void PlayBGM(BGM bgmId)
+    public void PlayBGM(BGM bgmId,bool isloop = true)
     {
         _asBGM.clip = _BGMList[(int)bgmId];
+        _asBGM.loop = isloop;
         _asBGM.Play();
     }
 

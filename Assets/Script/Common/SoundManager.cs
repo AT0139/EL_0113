@@ -38,11 +38,16 @@ public class SoundManager : MonoBehaviour
         NONE = 0,
         SELECT,
         ENTER,
+        EVI_ATTACK,
+        EVI_HIT,
+        CAT_ATTACK,
+        CAT_HIT,
     }
 
-    public void PlayBGM(BGM bgmId)
+    public void PlayBGM(BGM bgmId,bool isloop = true)
     {
         _asBGM.clip = _BGMList[(int)bgmId];
+        _asBGM.loop = isloop;
         _asBGM.Play();
     }
 

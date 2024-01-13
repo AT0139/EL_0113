@@ -23,6 +23,7 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.PlayBGM(SoundManager.BGM.TITLE);
         // ボタンサイズ取得
         _selectedSize = _toGameRect.sizeDelta;
         _noneSize = _exitRect.sizeDelta;
@@ -34,6 +35,7 @@ public class TitleManager : MonoBehaviour
         .ThrottleFirst(TimeSpan.FromMilliseconds(100))
         .Subscribe(_ =>
         {
+            SoundManager.Instance.PlaySE(SoundManager.SE.ENTER);
             if (_isSelectToGame)
             {
                 TitleTransition();
@@ -57,6 +59,7 @@ public class TitleManager : MonoBehaviour
         {
             if (_isSelectToGame) return;
 
+            SoundManager.Instance.PlaySE(SoundManager.SE.SELECT);
             _isSelectToGame = true;
             ButtonSizeChange(_selectedSize, _noneSize);
 
@@ -70,6 +73,7 @@ public class TitleManager : MonoBehaviour
         {
             if (!_isSelectToGame) return;
 
+            SoundManager.Instance.PlaySE(SoundManager.SE.SELECT);
             _isSelectToGame = false;
             ButtonSizeChange(_noneSize, _selectedSize);
 
